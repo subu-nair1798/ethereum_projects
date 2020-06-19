@@ -5,7 +5,7 @@ const assert = require("assert")
 const ganache = require("ganache-cli")
 
 const Web3 = require("web3")
-const { doesNotMatch } = require("assert")
+// const { doesNotMatch } = require("assert")
 // whenever using web3, we are always requiring/importing a constructor function
 // used to create instances of the web3 library (hence 'Web3' i.e. constructor naming convention)
 
@@ -28,8 +28,8 @@ beforeEach(async () => {
         
     // Use one of the accounts to deploy the contract
     inbox = await new web3.eth.Contract(abi)
-     .deploy({ data: evm.bytecode.object, arguments: [INITIAL_STRING] })
-     .send({ from: accounts[0], gas: "1000000" })
+        .deploy({ data: evm.bytecode.object, arguments: [INITIAL_STRING] })
+        .send({ from: accounts[0], gas: "1000000" })
 })
 
 describe("Inbox", () => {
