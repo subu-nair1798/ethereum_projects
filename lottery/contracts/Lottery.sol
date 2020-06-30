@@ -11,7 +11,7 @@ contract Lottery {
         manager = msg.sender;
     }
 
-    function enter() public payable{
+    function enter() public payable {
         require(msg.value > 0.01 ether,
         "A minimum payment of 0.01 ether is required to enter the lottery");
         players.push(msg.sender);
