@@ -32,7 +32,7 @@ contract Campaign {
     uint public approversCount;
 
     modifier restricted() {
-        require(msg.sender == manager, "A minimum contribution is required");
+        require(msg.sender == manager, "Only the manager can create a request");
         _;
     }
 
@@ -49,8 +49,6 @@ contract Campaign {
     }
 
     function createRequest(string memory description, uint value, address payable recipient) public restricted {
-        require(approvers[msg.sender], "Only the manager can create a request");
-
         Request memory newRequest = Request({
             description: description,
             value: value,

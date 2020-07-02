@@ -1,12 +1,12 @@
-const path = require("path")
-const fs = require("fs-extra")
-const solc = require("solc")
-const buildPath = path.resolve(__dirname, "build")
+const path = require("path");
+const fs = require("fs-extra");
+const solc = require("solc");
+const buildPath = path.resolve(__dirname, "build");
 
-fs.removeSync(buildPath)
+fs.removeSync(buildPath);
 
-const campaignPath = path.resolve(__dirname, "contracts", "Campaign.sol")
-const source = fs.readFileSync(campaignPath, "utf8")
+const campaignPath = path.resolve(__dirname, "contracts", "Campaign.sol");
+const source = fs.readFileSync(campaignPath, "utf8");
 
 const input = {
     language: "Solidity",
@@ -22,15 +22,15 @@ const input = {
             }
         }
     }
-}
+};
 
-const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts["Campaign.sol"]
+const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts["Campaign.sol"];
 
-fs.ensureDirSync(buildPath)
+fs.ensureDirSync(buildPath);
 
 for(let contract in output) {
     fs.outputJSONSync(
         path.resolve(buildPath, `${contract}.json`),
         output[contract]
-    )
+    );
 }
