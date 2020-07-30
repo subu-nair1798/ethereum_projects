@@ -13,7 +13,7 @@ class RequestRow extends Component {
         const campaign = Campaign(this.props.address);
         const accounts = await web3.eth.getAccounts();
 
-        this.setState({ loadingFlag1: true});
+        this.setState({ loadingFlag1: true });
 
         try{
             await campaign.methods.approveRequest(this.props.id).send({
@@ -31,7 +31,7 @@ class RequestRow extends Component {
         const campaign = Campaign(this.props.address);
         const accounts = await web3.eth.getAccounts();
 
-        this.setState({ loadingFlag2: true});
+        this.setState({ loadingFlag2: true });
 
         try {
             await campaign.methods.finalizeRequest(this.props.id).send({
