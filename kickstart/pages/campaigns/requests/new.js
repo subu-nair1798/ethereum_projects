@@ -77,10 +77,10 @@ class RequestNew extends Component {
                     <Message error header="Oops!" content={this.state.errorMessage} />
                     <Button loading={this.state.loadingFlag} primary>Create</Button>
                     <Link route={`/campaigns/${this.props.address}/requests`}>
-                    <a>
-                        <Button content="Back" secondary />
-                    </a>
-                </Link>
+                        <a>
+                            <Button content="Back" secondary />
+                        </a>
+                    </Link>
                 </Form>
             </Layout>
         )
